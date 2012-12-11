@@ -1,0 +1,9 @@
+{"spotdata":[
+{"id":0,"name":"IMS","category":"shopping","point": 1,"latitude": 33.590138,"longitude": 130.400188,"hint1": "巨大な吹き抜けは圧巻","hint2": "渡辺通り沿いの11階建て","hint3": "名前はアルファベット3文字","web": "http://www.ims.co.jp/","address": "福岡県福岡市中央区天神１丁目７−１１","tel": "092-733-2001","info": "10:00〜20:00 不定休"},
+{"id":1,"name":"konya2023","category":"gallery","point": 4,"latitude": 33.587609,"longitude": 130.395486,"hint1": "築45年のクリエイティブスペース","hint2": "キャラリー、カフェ、屋上にはUFOパーキング","hint3": "大名の紺屋町","web": "http://konya2023.travelers-project.info/","address": "福岡市中央区大名１丁目１４−２８ 第一松村ビル","tel": "092-984-6292","info": "11:00-20:00 不定休"},
+{"id":2,"name":"福岡タワー","category":"landmark","point": 1,"latitude": 33.593332,"longitude": 130.351525,"hint1": "234mの別名「ミラーセイル」","hint2": "上から見ると三角形","hint3": "福岡のタワーと言えば？","web": "http://www.fukuokatower.co.jp/","address": "福岡県福岡市早良区百道浜２丁目３−２６","tel": "092-823-0234","info": "test"},
+{"id":3,"name":"キャナルシティ博多","category":"shopping","point": 1,"latitude": 33.590115,"longitude": 130.410591,"hint1": "天神と博多をつなぐ「都市の劇場」","hint2": "30分ごとに噴水ショーが始まる","hint3": "カラフルな外観はすべて日本の伝統色","web": "http://www.canalcity.co.jp/","address": "福岡県福岡市博多区住吉１ー２","tel": "092-282-2525","info": "店舗による"},
+{"id":4,"name":"西鉄大橋駅","category":"shopping","point": 1,"latitude": 33.559098,"longitude": 130.426555,"hint1": "1978年開業の西鉄名店街","hint2": "テスト","hint3": "もう一つテスト","web": "http://hogehoge.co.jp/","address": "福岡県福岡市南区大橋１丁目５番１号","tel": "092-511-5517","info": "店舗による"},
+{"id":5,"name":"びっくり亭 高宮店","category":"restaurant","point": 2,"latitude": 33.565813,"longitude": 130.416351,"hint1": "極秘味噌がおいしい豚肉焼き","hint2": "高宮駅から南へ下る","hint3": "びっくり棒","web": "http://mori.ac/lunch001.html","address": "福岡県福岡市南区玉川町10−3","tel": "092-511-8829","info": "不定休"}
+]
+}
