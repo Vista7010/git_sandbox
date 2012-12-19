@@ -93,6 +93,7 @@ if(Ti.Platform.osname == "iphone"){
 	});
 }
 view_find.add(labelHead);
+
 if(Ti.Platform.osname == "iphone"){
 	var labelDist = Ti.UI.createLabel({
 		text: 'hogehogeDist',
@@ -154,7 +155,7 @@ if(Ti.Platform.osname == 'android'){
 			latitudeDelta:0.01,
 			longitudeDelta:0.01
 		}
-		labelDist.text = calDist(cLocLat,cLocLong,Ti.App.spots.spotdata[4].latitude,Ti.App.spots.spotdata[4].longitude)
+		labelDist.text = 'Dist:'+calDist(cLocLat,cLocLong,Ti.App.spots.spotdata[4].latitude,Ti.App.spots.spotdata[4].longitude)
 	};
 	Titanium.Geolocation.addEventListener('location', locationCallback);
 }else if(Ti.Platform.osname == 'iphone' ){
@@ -183,13 +184,12 @@ var updateCompass = function(e){
 		Ti.API.info(e);
 		return;
 	}
-	var mHead = e.heading.magneticHeading;
-	labelHead.text = mHead;
+	var mHead = e.heading.trueHeading;
 	var rotate = Ti.UI.create2DMatrix();
-	var angle = 360 + mHead - calDir(cLocLat,cLocLong,Ti.App.spots.spotdata[4].latitude,Ti.App.spots.spotdata[4].longitude);
+	var angle = 180 + calDir(Ti.App.spots.spotdata[4].latitude,Ti.App.spots.spotdata[4].longitude,cLocLat,cLocLong) - mHead;
 	rotate = rotate.rotate(angle);
 	compass.transform = rotate;
-	labelHead.text = mHead+'p'+angle+'p'+rotate;
+	labelHead.text = 'mag:'+mHead+'ang:'+angle;
 };
 
 Ti.Geolocation.headingFilter = 90;
@@ -208,18 +208,15 @@ win.open();
 
 
 /* 2点間から向きを出す */
-function calDir(aLat,aLong,bLat,bLong){
-	aLat = deg2rad(aLat);
-	aLong = deg2rad(aLong);
-	bLat = deg2rad(bLat);
-	bLong = deg2rad(bLong);
-	
-	var latCenter = (aLat + bLat) / 2 ;
-	var dx = earth_r * (bLong - aLong)* Math.cos(latCenter);
-	var dy = earth_r *(bLat - aLat);
-	
-	if (dx == 0 && dy == 0){return 0;}
-	else{ return Math.atan2(dy,dx) / (Math.PI / 180) }
+function calDir(lat1, lng1, lat2, lng2){
+	var pi = Math.PI / 180;
+	var y = Math.cos(lng2 * pi) * Math.sin(lat2 * pi - lat1 * pi);
+	var x = Math.cos(lng1 * pi) * Math.sin(lng2 * pi) - Math.sin(lng1 * pi) * Math.cos(lng2 * pi) * Math.cos(lat2 * pi - lat1 * pi);
+	var rad = 180 * Math.atan2(y, x) / Math.PI;
+	if(rad < 0){ rad = rad + 360; }
+	var deg = 360 - rad;
+	var deg = (rad + 90) % 360;
+	return deg;
 }
 
 /* 2点間の距離を出す */
